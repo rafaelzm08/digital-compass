@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Compass | Marketing Digital para Turismo Sostenible</title>
+<meta name="description" content="Consultoría B2B de marketing digital para ecoturismo y hotelería sostenible en Colombia: captación, analítica y Revenue Management para atraer viajeros conscientes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.className='js'</script>
+<style>
+/* ===== Tokens de marca (editar colores aquí) ===== */
+:root{--navy:#0B2545;--turquoise:#14A3A0;--coral:#D4483A;--coral-d:#B93A2D;--sand:#F7F2E8;--sand2:#EDE5D3;--emerald:#1F8A5B;--ink:#1B2B40;--muted:#586A7E;--line:#E2DACA}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font:400 16px/1.65 Inter,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.btn,nav a,.eyebrow{font-family:Montserrat,sans-serif}
+h1{font-size:clamp(34px,4vw,54px);line-height:1.08;font-weight:800;color:var(--navy);letter-spacing:-.02em}
+h2{font-size:clamp(28px,3vw,40px);line-height:1.15;font-weight:700;color:var(--navy);letter-spacing:-.015em}
+h3{font-size:17px;font-weight:700;color:var(--navy);line-height:1.3}
+.wrap{max-width:1200px;margin:auto;padding:0 32px}
+section{padding:104px 0}
+.alt{background:var(--sand)}
+.dark{background:var(--navy);color:#cfd9e6}.dark h2,.dark h3{color:#fff}
+.eyebrow{display:block;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--turquoise);margin-bottom:16px}
+.lead{font-size:18px;color:var(--muted);max-width:660px;margin-top:20px}.dark .lead{color:#cfd9e6}
+.hl{font:700 clamp(22px,2.4vw,32px)/1.2 Montserrat;color:var(--coral);margin-top:12px}
+:focus-visible{outline:3px solid var(--turquoise);outline-offset:3px}
+.ic{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;color:var(--turquoise)}
+/* Botones */
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;padding:15px 28px;border:0;border-radius:999px;background:var(--coral);color:#fff;cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s}
+.btn:hover{background:var(--coral-d);transform:translateY(-2px);box-shadow:0 12px 24px -12px rgba(212,72,58,.8)}
+.btn.sm{padding:10px 20px;font-size:14px}.btn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);transition:box-shadow .3s}
+header .in{display:flex;align-items:center;justify-content:space-between;height:84px;transition:height .3s}
+header.sc{box-shadow:0 8px 24px -16px rgba(11,37,69,.35)}header.sc .in{height:68px}
+nav ul{display:flex;gap:30px;list-style:none;padding:0}
+nav a{font-size:14px;font-weight:600;color:var(--navy);text-decoration:none;transition:color .2s}nav a:hover{color:var(--turquoise)}
+/* Logo (marcador: reemplazar el bloque .logo por <img src="logo.png" alt="Digital Compass – Digital Marketing para Turismo">) */
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy)}
+.logo svg{width:42px;height:42px}
+.logo b{display:block;font:800 17px/1 Montserrat;letter-spacing:.06em}
+.logo small{display:block;font:600 8.5px/1 Montserrat;letter-spacing:.13em;color:var(--turquoise);margin-top:5px}
+/* Hero */
+.hero{padding:72px 0 96px;background:linear-gradient(180deg,#fff,var(--sand))}
+.hero .g{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero .sub{font-size:19px;color:var(--muted);margin:24px 0 34px;max-width:560px}
+.hero .tag{margin-top:24px;font-size:13px;letter-spacing:.05em;color:var(--muted)}
+.needle{transform-origin:260px 230px;animation:sw 9s ease-in-out infinite alternate}
+@keyframes sw{to{transform:rotate(12deg)}}
+.dash{animation:dm 24s linear infinite}@keyframes dm{to{stroke-dashoffset:-280}}
+/* Grillas */
+.cols{display:grid;gap:32px;margin-top:56px}
+.c4{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.c3{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.p{border-top:2px solid var(--line);padding-top:24px;transition:border-color .3s}.p:hover{border-color:var(--turquoise)}
+.p .n{font:800 13px Montserrat;color:var(--coral);letter-spacing:.1em;display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.p h3{margin-bottom:8px;letter-spacing:.04em}.p p{color:var(--muted);font-size:15px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 36px -24px rgba(11,37,69,.35)}
+.card .ic{margin-bottom:18px}.card h3{margin-bottom:10px}.card p{color:var(--muted);font-size:15px}
+/* Solución */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.steps{list-style:none;padding:0;position:relative}
+.steps::before{content:"";position:absolute;left:19px;top:20px;bottom:40px;width:2px;background:linear-gradient(var(--turquoise),var(--coral))}
+.steps li{display:flex;gap:20px;padding-bottom:24px;position:relative}
+.steps i{flex:none;width:40px;height:40px;border-radius:50%;background:#fff;border:2px solid var(--turquoise);display:grid;place-items:center;font:700 13px Montserrat;color:var(--navy);font-style:normal;z-index:1}
+.steps h3{font-size:14px;letter-spacing:.1em}.steps p{font-size:15px;color:var(--muted)}
+/* Métricas */
+.m5{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:24px;margin-top:56px}
+.m5 div{border-left:2px solid rgba(20,163,160,.5);padding-left:20px}
+.m5 b{display:block;font:800 36px/1.1 Montserrat;color:var(--turquoise)}
+.m5 span{display:block;font:600 13px Montserrat;color:#fff;margin:8px 0 4px}.m5 p{font-size:14px}
+/* Servicios */
+.svc{display:grid;grid-template-columns:80px 300px 1fr;gap:24px;align-items:baseline;padding:28px 16px;border-bottom:1px solid var(--line);transition:background .25s}
+.svc:first-child{border-top:1px solid var(--line)}.svc:hover{background:var(--sand)}
+.svc .n{font:800 14px Montserrat;color:var(--coral)}.svc h3{font-size:19px;letter-spacing:.06em}
+.svc ul{display:flex;flex-wrap:wrap;gap:8px 10px;list-style:none;padding:0}
+.svc li{font-size:14.5px;padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:#fff}
+.note{margin-top:28px;font-size:14px;color:var(--muted)}
+/* Vanity vs negocio */
+.vs{display:grid;grid-template-columns:1fr 1fr;margin-top:56px;position:relative;border-radius:20px;overflow:hidden}
+.vs>div{padding:52px 48px}
+.vs .l{background:var(--sand2);color:var(--muted)}.vs .r{background:var(--navy);color:#fff}
+.vs h3{font-size:12px;letter-spacing:.16em;margin-bottom:22px}.vs .l h3{color:var(--muted)}.vs .r h3{color:var(--turquoise)}
+.vs ul{list-style:none;padding:0}
+.vs li{padding:14px 0;border-bottom:1px solid rgba(127,140,155,.3);font:600 19px Montserrat;opacity:.8}
+.vs .r li{font-size:25px;opacity:1}
+.vs .l li::before{content:"–";margin-right:14px}.vs .r li::before{content:"✓";color:var(--turquoise);margin-right:14px}
+.vsb{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:#fff;color:var(--navy);display:grid;place-items:center;font:800 14px Montserrat;box-shadow:0 0 0 6px var(--sand)}
+/* Metodología */
+.route{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;position:relative;margin-top:64px}
+.route::before{content:"";position:absolute;top:11px;left:12px;right:8%;height:2px;background:linear-gradient(90deg,var(--turquoise),var(--coral));transition:transform 1.8s ease;transform-origin:left}
+.js .route::before{transform:scaleX(0)}.js .route.in::before{transform:scaleX(1)}
+.route div{position:relative;padding-top:46px}
+.route div::before{content:"";position:absolute;top:0;left:0;width:24px;height:24px;border-radius:50%;background:#fff;border:3px solid var(--turquoise)}
+.route span{font:800 13px Montserrat;color:var(--coral);letter-spacing:.1em}.route h3{margin:4px 0 6px;letter-spacing:.06em;font-size:16px}.route p{font-size:14.5px;color:var(--muted)}
+/* No somos para todos */
+.box{border-left:4px solid var(--coral);padding:8px 0 8px 28px;color:var(--muted)}.box p+p{margin-top:16px;font-size:14px}
+/* FAQ */
+.faq{max-width:820px;margin:48px auto 0}
+.q{border-bottom:1px solid var(--line)}
+.q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;text-align:left;background:none;border:0;padding:24px 0;font:700 17px/1.35 Montserrat;color:var(--navy);cursor:pointer;transition:color .2s}
+.q button:hover{color:var(--turquoise)}
+.q i{flex:none;width:14px;height:14px;position:relative}
+.q i::before,.q i::after{content:"";position:absolute;background:var(--coral);left:0;top:6px;width:14px;height:2px;transition:transform .3s}.q i::after{transform:rotate(90deg)}
+.q.open i::after{transform:rotate(0)}
+.a{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .35s,visibility .35s}.a>div{overflow:hidden}
+.q.open .a{grid-template-rows:1fr;visibility:visible}.a p{padding:0 40px 24px 0;color:var(--muted)}
+/* CTA final y footer */
+.cta{position:relative;overflow:hidden;text-align:center;padding:120px 0}
+.cta h2{max-width:800px;margin:0 auto}.cta .lead{margin:20px auto 36px}
+.cta svg{position:absolute;right:-120px;top:-100px;width:520px;opacity:.5;pointer-events:none}
+.cta .wrap{position:relative}
+footer{background:#071A33;color:#a9b8cb;padding:64px 0 40px;font-size:14px}
+footer .top{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.12)}
+footer .logo{color:#fff}footer p.t{margin-top:12px}
+footer ul{display:flex;gap:26px;list-style:none;padding:0;margin:32px 0 0}footer a{color:#cfd9e6;text-decoration:none;transition:color .2s}footer a:hover{color:var(--turquoise)}
+footer .b{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+/* Modal de agenda (demostrativo) */
+.modal{position:fixed;inset:0;z-index:100;background:rgba(7,26,51,.65);display:grid;place-items:center;padding:24px;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.modal.open{opacity:1;visibility:visible}
+.mbox{position:relative;display:grid;grid-template-columns:250px 1fr;width:min(860px,100%);max-height:94vh;overflow:auto;background:#fff;border-radius:20px;transform:translateY(14px);transition:transform .3s}
+.modal.open .mbox{transform:none}
+.mside{background:var(--navy);color:#cfd9e6;padding:36px 28px;font-size:14px}
+.mside svg{width:44px;height:44px;margin-bottom:20px}.mside h3{color:#fff;margin-bottom:10px}
+.mmain{padding:36px}.mmain h2{font-size:26px}.mmain>div>p{color:var(--muted);margin:6px 0 22px;font-size:15px}
+.x{position:absolute;top:14px;right:16px;background:none;border:0;font:600 13px Montserrat;color:var(--muted);cursor:pointer;padding:6px 8px;z-index:2}.x:hover{color:var(--coral)}
+.ch{display:flex;justify-content:space-between;align-items:center;font:700 15px Montserrat;color:var(--navy);margin-bottom:10px}
+.ch button{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--navy)}.ch button:disabled{opacity:.3;cursor:default}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.cal>b{font:600 11px Montserrat;color:var(--muted);padding:4px 0}
+.d,.t{font:600 14px Inter;border:1px solid transparent;background:#fff;border-radius:10px;height:38px;cursor:pointer;color:var(--navy);transition:background .2s,color .2s,border-color .2s}
+.d:not(.off){background:#E6F5F4}.d:not(.off):hover,.t:hover{border-color:var(--turquoise)}
+.d.off{color:#b7c0cb;cursor:default}
+.d.sel,.t.sel{background:var(--navy)!important;color:#fff}
+.tl{margin:20px 0 10px;font-size:14px;color:var(--muted)}
+.tg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.t{border-color:var(--line)}
+#confirm{margin-top:24px}
+.ok{text-align:center;padding:48px 0}.ok .ic{width:56px;height:56px;color:var(--emerald)}.ok h2{margin:16px 0 8px}.ok p{color:var(--muted)}.ok .btn{margin-top:26px}
+/* Animaciones de entrada */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.js .rv.in{opacity:1;transform:none}
+@media(max-width:960px){nav ul{display:none}.hero .g,.two,.vs,.mbox{grid-template-columns:1fr}.svc{grid-template-columns:1fr;gap:12px}.vsb{display:none}.route::before{display:none}section{padding:72px 0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}.js .route::before{transform:none}}
+</style>
+</head>
+<body>
+<!-- Iconos y marca reutilizables (SVG inline, estilo lineal) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="mark" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="none" stroke="#14A3A0" stroke-width="2.5"/><path d="M12 28v-4M18 28v-8M24 28v-12" stroke="#14A3A0" stroke-width="3" stroke-linecap="round"/><path d="M10 17l18-8M22 8.5l6.5.5-1.5 6.5" fill="none" stroke="#D4483A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="wave"><path d="M3 12c3-6 6-6 9 0s6 6 9 0"/></symbol>
+<symbol id="funnel"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></symbol>
+<symbol id="link"><path d="M9 15l6-6M8 11l-2 2a3.5 3.5 0 005 5l2-2M16 13l2-2a3.5 3.5 0 00-5-5l-2 2"/></symbol>
+<symbol id="trace"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 6h6a3 3 0 010 6h-4a3 3 0 000 6h6"/></symbol>
+<symbol id="leaf"><path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15M5 19l8-8"/></symbol>
+<symbol id="target"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></symbol>
+<symbol id="chart"><path d="M4 20V4M4 20h16M8 15l4-4 3 3 5-6"/></symbol>
+<symbol id="sys"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><path d="M13 16.5h7"/></symbol>
+<symbol id="hotel"><path d="M4 20V6l8-3 8 3v14M9 20v-5h6v5M8 9h2M14 9h2"/></symbol>
+<symbol id="check"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></symbol>
+</svg>
+
+<!-- 1. HEADER -->
+<header id="top"><div class="wrap in">
+  <a class="logo" href="#inicio" aria-label="Digital Compass – Digital Marketing para Turismo (ir al inicio)">
+    <svg role="img" aria-label="Logo Digital Compass"><use href="#mark"/></svg>
+    <span><b>DIGITAL COMPASS</b><small>DIGITAL MARKETING PARA TURISMO</small></span>
+  </a>
+  <nav aria-label="Principal"><ul>
+    <li><a href="#inicio">Inicio</a></li><li><a href="#solucion">Solución</a></li><li><a href="#servicios">Servicios</a></li>
+    <li><a href="#metodologia">Metodología</a></li><li><a href="#diferenciadores">Diferenciadores</a></li><li><a href="#faq">FAQ</a></li>
+  </ul></nav>
+  <button class="btn sm" data-cta>Hablar con un estratega</button>
+</div></header>
+
+<main>
+<!-- 2. HERO -->
+<section class="hero" id="inicio"><div class="wrap g">
+  <div class="rv">
+    <span class="eyebrow">Consultoría B2B · Ecoturismo · Hotelería sostenible</span>
+    <h1>Marketing turístico que convierte datos en decisiones rentables.</h1>
+    <p class="sub">Diseñamos estrategias digitales para hoteles ecológicos y proyectos de turismo sostenible que buscan atraer viajeros conscientes, mejorar su captación y tomar decisiones basadas en datos.</p>
+    <button class="btn" data-cta>Hablar con un estratega</button>
+    <p class="tag">Consultoría B2B · Ecoturismo · Hotelería sostenible</p>
+  </div>
+  <!-- Visual abstracto: brújula + ruta + crecimiento + naturaleza -->
+  <div class="rv"><svg viewBox="0 0 520 480" role="img" aria-label="Composición abstracta: una brújula, una ruta de puntos conectados y barras de crecimiento">
+    <defs><linearGradient id="gr" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#14A3A0"/><stop offset="1" stop-color="#1F8A5B"/></linearGradient></defs>
+    <circle cx="260" cy="230" r="190" fill="#fff" stroke="#DCE6E4"/>
+    <circle cx="260" cy="230" r="150" fill="none" stroke="#14A3A0" stroke-opacity=".4" stroke-width="2" stroke-dasharray="2 8"/>
+    <circle cx="260" cy="230" r="100" fill="#EEF7F6"/>
+    <g class="needle"><path d="M260 230l58-78 -36 98z" fill="#D4483A"/><path d="M260 230l-58 78 36-98z" fill="#0B2545"/><circle cx="260" cy="230" r="8" fill="#fff" stroke="#0B2545" stroke-width="3"/></g>
+    <path class="dash" d="M60 400C140 380 150 300 230 330S350 380 400 300 470 170 470 110" fill="none" stroke="url(#gr)" stroke-width="3" stroke-dasharray="6 8" stroke-linecap="round"/>
+    <g fill="#fff" stroke="#14A3A0" stroke-width="3"><circle cx="60" cy="400" r="8"/><circle cx="230" cy="330" r="8"/><circle cx="400" cy="300" r="8"/></g>
+    <circle cx="470" cy="110" r="10" fill="#D4483A"/>
+    <path d="M336 452v-20M358 452v-38M380 452v-58M402 452v-80" stroke="#14A3A0" stroke-width="10" stroke-linecap="round" opacity=".75"/>
+    <path d="M90 130c40-44 92-34 104 8-42 40-94 32-104-8zM94 134l70-6" fill="#1F8A5B" stroke="#fff" stroke-width="2"/>
+    <g font-family="Montserrat" font-size="12" font-weight="700" text-anchor="middle" fill="#fff">
+      <rect x="380" y="50" width="70" height="28" rx="14" fill="#0B2545"/><text x="415" y="69">ROI</text>
+      <rect x="40" y="250" width="76" height="28" rx="14" fill="#14A3A0"/><text x="78" y="269">CAC</text>
+      <rect x="400" y="360" width="86" height="28" rx="14" fill="#1F8A5B"/><text x="443" y="379">RevPAR</text></g>
+  </svg></div>
+</div></section>
+
+<!-- 3. PROBLEMA -->
+<section id="problema"><div class="wrap">
+  <div class="rv"><span class="eyebrow">El problema</span><h2>El problema no es atraer más turistas.</h2><p class="hl">Es atraer a los turistas correctos.</p></div>
+  <div class="cols c4 rv">
+    <article class="p"><div class="n">01<svg class="ic"><use href="#wave"/></svg></div><h3>ESTACIONALIDAD</h3><p>Flujos de demanda difíciles de estabilizar.</p></article>
+    <article class="p"><div class="n">02<svg class="ic"><use href="#funnel"/></svg></div><h3>LEADS DE BAJO VALOR</h3><p>Conversaciones que consumen tiempo sin convertirse en reservas.</p></article>
+    <article class="p"><div class="n">03<svg class="ic"><use href="#link"/></svg></div><h3>DEPENDENCIA DE INTERMEDIARIOS</h3><p>Menor control sobre el cliente y costos comerciales derivados de intermediarios.</p></article>
+    <article class="p"><div class="n">04<svg class="ic"><use href="#trace"/></svg></div><h3>MARKETING SIN TRAZABILIDAD</h3><p>Campañas que generan métricas, pero no permiten comprender claramente su impacto comercial.</p></article>
+  </div>
+</div></section>
+
+<!-- 4. SOLUCIÓN -->
+<section class="alt" id="solucion"><div class="wrap two">
+  <div class="rv"><span class="eyebrow">La solución</span><h2>Una estrategia digital construida alrededor de tu negocio.</h2>
+    <p class="lead">Digital Compass integra estrategia, captación, conversión y analítica para construir un sistema de marketing alineado con las decisiones comerciales del negocio turístico.</p>
+    <p style="margin-top:32px"><button class="btn" data-cta>Hablar con un estratega</button></p></div>
+  <ol class="steps rv">
+    <li><i>1</i><div><h3>DIAGNÓSTICO</h3><p>Analizamos el punto de partida comercial y digital.</p></div></li>
+    <li><i>2</i><div><h3>ESTRATEGIA</h3><p>Definimos objetivos, segmentos y prioridades.</p></div></li>
+    <li><i>3</i><div><h3>CAPTACIÓN</h3><p>Activamos los canales para atraer viajeros conscientes.</p></div></li>
+    <li><i>4</i><div><h3>CONVERSIÓN</h3><p>Landing pages y embudos que guían hacia la reserva.</p></div></li>
+    <li><i>5</i><div><h3>MEDICIÓN</h3><p>Seguimos costos y recorridos por canal.</p></div></li>
+    <li><i>6</i><div><h3>OPTIMIZACIÓN</h3><p>Ajustamos según lo que muestran los datos.</p></div></li>
+  </ol>
+</div></section>
+
+<!-- 5. MÉTRICAS DE NEGOCIO -->
+<section class="dark" id="metricas"><div class="wrap">
+  <div class="rv"><span class="eyebrow">Enfoque analítico</span><h2>Porque una campaña no termina en un clic.</h2>
+    <p class="lead">Nuestra estrategia busca conectar las decisiones de marketing con variables comerciales y financieras del negocio turístico, no solo con indicadores de actividad digital.</p></div>
+  <div class="m5 rv">
+    <div><b>ROI</b><span>Retorno de la inversión</span><p>¿Qué retorna lo invertido?</p></div>
+    <div><b>CAC</b><span>Costo de adquisición</span><p>¿Cuánto cuesta captar a cada huésped?</p></div>
+    <div><b>RevPAR</b><span>Ingreso por habitación disponible</span><p>¿Qué ingreso genera la capacidad?</p></div>
+    <div><b>ADR</b><span>Tarifa diaria promedio</span><p>¿A qué tarifa se vende la ocupación?</p></div>
+    <div><b>VPN</b><span>Valor presente neto</span><p>¿Qué valor tiene la inversión en el tiempo?</p></div>
+  </div>
+</div></section>
+
+<!-- 6. SERVICIOS -->
+<section id="servicios"><div class="wrap">
+  <div class="rv"><span class="eyebrow">Servicios</span><h2>Todo el ecosistema digital. Una sola dirección estratégica.</h2></div>
+  <div class="rv" style="margin-top:48px">
+    <article class="svc"><span class="n">01</span><h3>ESTRATEGIA</h3><ul><li>Estrategia de marketing digital</li><li>Consultoría comercial</li><li>Segmentación</li></ul></article>
+    <article class="svc"><span class="n">02</span><h3>CAPTACIÓN</h3><ul><li>Google Ads</li><li>Meta Ads</li><li>LinkedIn Ads</li><li>SEO</li><li>Email Marketing</li></ul></article>
+    <article class="svc"><span class="n">03</span><h3>CONVERSIÓN</h3><ul><li>Landing Pages</li><li>Embudos de conversión</li><li>CRM</li></ul></article>
+    <article class="svc"><span class="n">04</span><h3>ANALÍTICA &amp; REVENUE</h3><ul><li>Analítica</li><li>Dashboards</li><li>Revenue Management</li></ul></article>
+    <article class="svc"><span class="n">05</span><h3>AUTOMATIZACIÓN</h3><ul><li>Automatización</li><li>Seguimiento de procesos</li></ul></article>
+  </div>
+  <p class="note">Solicita una propuesta personalizada. El diseño de ofertas turísticas no forma parte del alcance de la consultoría.</p>
+</div></section>
+
+<!-- 7. VANIDAD VS. RENTABILIDAD -->
+<section class="alt" id="contraste"><div class="wrap">
+  <div class="rv" style="text-align:center"><span class="eyebrow">Nuestro enfoque</span><h2>Menos métricas de vanidad. Más métricas de negocio.</h2>
+    <p class="lead" style="margin-inline:auto">No se trata de generar más ruido. Se trata de entender qué mueve realmente el negocio.</p></div>
+  <div class="vs rv">
+    <div class="l"><h3>MARKETING DE VANIDAD</h3><ul><li>Likes</li><li>Impresiones</li><li>Seguidores</li><li>Alcance</li><li>Interacciones</li></ul></div>
+    <div class="vsb" aria-hidden="true">VS.</div>
+    <div class="r"><h3>MARKETING ORIENTADO A RENTABILIDAD</h3><ul><li>ROI</li><li>CAC</li><li>Reservas</li><li>Conversión</li><li>Trazabilidad</li></ul></div>
+  </div>
+  <p class="note" style="text-align:center">Una diferencia de enfoque metodológico de Digital Compass.</p>
+</div></section>
+
+<!-- 8. DIFERENCIADORES -->
+<section id="diferenciadores"><div class="wrap">
+  <div class="rv"><span class="eyebrow">Diferenciadores</span><h2>Tu marketing también necesita dirección.</h2></div>
+  <div class="cols c4 rv">
+    <article class="card"><svg class="ic"><use href="#target"/></svg><h3>SEGMENTACIÓN DE ALTO VALOR</h3><p>Atraemos perfiles con mayor afinidad hacia experiencias sostenibles y con mayor intención de compra.</p></article>
+    <article class="card"><svg class="ic"><use href="#trace"/></svg><h3>TRAZABILIDAD</h3><p>Seguimos la inversión y el recorrido digital para comprender qué canales y acciones están generando oportunidades.</p></article>
+    <article class="card"><svg class="ic"><use href="#chart"/></svg><h3>REVENUE MANAGEMENT</h3><p>Conectamos la estrategia de captación digital con variables clave de desempeño comercial.</p></article>
+    <article class="card"><svg class="ic"><use href="#sys"/></svg><h3>INFRAESTRUCTURA DE NEGOCIO</h3><p>Más que ejecutar campañas, estructuramos un sistema que permita tomar mejores decisiones.</p></article>
+  </div>
+</div></section>
+
+<!-- 9. PARA QUIÉN ES -->
+<section class="alt" id="audiencia"><div class="wrap">
+  <div class="rv"><span class="eyebrow">Para quién es</span><h2>Pensado para quienes protegen el propósito y la rentabilidad.</h2></div>
+  <div class="cols c3 rv">
+    <article class="card"><svg class="ic"><use href="#hotel"/></svg><h3>HOTELERÍA ECOLÓGICA</h3><p>Para propietarios y gerentes que buscan ocupación sostenible y control financiero.</p></article>
+    <article class="card"><svg class="ic"><use href="#leaf"/></svg><h3>ECOHOTELES BOUTIQUE</h3><p>Para empresas que necesitan crecer sin sacrificar exclusividad ni propósito.</p></article>
+    <article class="card"><svg class="ic"><use href="#target"/></svg><h3>PROYECTOS DE TURISMO SOSTENIBLE</h3><p>Para operadores y organizaciones que necesitan captar viajeros compatibles con su propuesta.</p></article>
+  </div>
+</div></section>
+
+<!-- 10. METODOLOGÍA -->
+<section id="metodologia"><div class="wrap">
+  <div class="rv"><span class="eyebrow">Metodología</span><h2>Del dato a la decisión.</h2></div>
+  <div class="route">
+    <div><span>01</span><h3>ENTENDER</h3><p>Analizamos el contexto comercial y digital.</p></div>
+    <div><span>02</span><h3>SEGMENTAR</h3><p>Definimos a quién queremos atraer y a quién no.</p></div>
+    <div><span>03</span><h3>CAPTAR</h3><p>Diseñamos campañas y canales adecuados.</p></div>
+    <div><span>04</span><h3>CONVERTIR</h3><p>Construimos landing pages y embudos.</p></div>
+    <div><span>05</span><h3>MEDIR</h3><p>Seguimos las variables relevantes.</p></div>
+    <div><span>06</span><h3>OPTIMIZAR</h3><p>Ajustamos la estrategia según los datos.</p></div>
+  </div>
+</div></section>
+
+<!-- 11. NO SOMOS PARA TODOS -->
+<section class="alt" id="enfoque"><div class="wrap two">
+  <div class="rv"><span class="eyebrow">Alcance</span><h2>No buscamos llenar tu bandeja de entrada.</h2>
+    <p class="lead">Buscamos construir un sistema de captación que atraiga prospectos alineados con tu propuesta, tu posicionamiento y el valor de tu experiencia.</p></div>
+  <div class="box rv"><p>Nuestro foco está en la estrategia y captación digital. El cierre comercial y la operación turística permanecen en manos del cliente.</p>
+    <p>El diseño de ofertas turísticas no forma parte del alcance de Digital Compass.</p></div>
+</div></section>
+
+<!-- 12. FAQ -->
+<section id="faq"><div class="wrap">
+  <div class="rv" style="text-align:center"><span class="eyebrow">Preguntas frecuentes</span><h2>Dudas que conviene resolver antes de hablar.</h2></div>
+  <div class="faq rv">
+    <div class="q"><h3><button aria-expanded="false">¿Qué tipo de empresas pueden trabajar con Digital Compass?<i></i></button></h3><div class="a"><div><p>Hoteles ecológicos, ecohoteles boutique, cadenas o grupos hoteleros sostenibles y proyectos de turismo sostenible en Colombia que buscan captar viajeros conscientes con una estrategia medible.</p></div></div></div>
+    <div class="q"><h3><button aria-expanded="false">¿Cómo se mide el desempeño de las campañas?<i></i></button></h3><div class="a"><div><p>Definimos desde el inicio las variables relevantes, como CAC, conversión, reservas y ROI, y seguimos el recorrido digital por canal para entender qué acciones generan oportunidades. Con esa información se ajusta la estrategia.</p></div></div></div>
+    <div class="q"><h3><button aria-expanded="false">¿Digital Compass garantiza un número específico de reservas?<i></i></button></h3><div class="a"><div><p>No. La consultoría está orientada a construir, medir y optimizar una estrategia de captación. Los resultados dependen también de factores como la oferta, el mercado, la operación comercial, la demanda y las condiciones externas.</p></div></div></div>
+    <div class="q"><h3><button aria-expanded="false">¿Digital Compass reemplaza al equipo comercial del hotel?<i></i></button></h3><div class="a"><div><p>No. Digital Compass trabaja sobre la estrategia y captación digital. El proceso de atención, cierre y operación turística permanece bajo responsabilidad del cliente.</p></div></div></div>
+    <div class="q"><h3><button aria-expanded="false">¿La consultoría incluye diseño de experiencias o paquetes turísticos?<i></i></button></h3><div class="a"><div><p>No. El diseño de ofertas turísticas no forma parte del alcance del servicio.</p></div></div></div>
+    <div class="q"><h3><button aria-expanded="false">¿Cómo puedo iniciar una conversación?<i></i></button></h3><div class="a"><div><p>Puedes utilizar el botón «Hablar con un estratega» para acceder a la agenda demostrativa.</p></div></div></div>
+  </div>
+</div></section>
+
+<!-- 13. CTA FINAL -->
+<section class="dark cta" id="contacto">
+  <svg viewBox="0 0 520 520" aria-hidden="true"><circle cx="260" cy="260" r="240" fill="none" stroke="#14A3A0" stroke-width="2"/><circle cx="260" cy="260" r="170" fill="none" stroke="#14A3A0" stroke-dasharray="2 9" stroke-width="2"/><circle cx="130" cy="420" r="9" fill="#D4483A"/><path d="M260 260L130 420" stroke="#D4483A" stroke-width="2" stroke-dasharray="5 7"/></svg>
+  <div class="wrap rv"><h2>Tu propósito merece una estrategia tan precisa como tu negocio.</h2>
+    <p class="lead">Conversemos sobre cómo convertir tus datos, presupuesto y propuesta turística en una estrategia digital medible.</p>
+    <button class="btn" data-cta>Hablar con un estratega</button></div>
+</section>
+</main>
+
+<!-- 14. FOOTER -->
+<footer><div class="wrap">
+  <div class="top">
+    <div><a class="logo" href="#inicio" aria-label="Digital Compass (ir al inicio)"><svg role="img" aria-label="Logo Digital Compass"><use href="#mark"/></svg><span><b>DIGITAL COMPASS</b><small>DIGITAL MARKETING PARA TURISMO</small></span></a></div>
+    <button class="btn sm" data-cta>Hablar con un estratega</button>
+  </div>
+  <nav aria-label="Pie de página"><ul><li><a href="#inicio">Inicio</a></li><li><a href="#solucion">Solución</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#metodologia">Metodología</a></li><li><a href="#faq">FAQ</a></li></ul></nav>
+  <p class="b" style="margin-top:36px"><span>Digital Compass · Digital Marketing para Turismo</span><span>Proyecto académico · 2026</span></p>
+</div></footer>
+
+<!-- 15. MODAL DE AGENDA (demostrativo, sin backend ni servicios externos) -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mt" aria-hidden="true">
+  <div class="mbox">
+    <button class="x" data-close>Cerrar ×</button>
+    <div class="mside"><svg aria-hidden="true"><use href="#mark"/></svg><h3>Conversación estratégica</h3><p>Reunión demostrativa con un estratega de Digital Compass. Simulación académica: no se envía información ni se usa ningún servicio externo.</p></div>
+    <div class="mmain">
+      <div id="form">
+        <h2 id="mt">Hablemos de tu estrategia</h2>
+        <p>Selecciona un horario para una conversación estratégica.</p>
+        <div class="ch"><button type="button" id="prev" aria-label="Mes anterior">‹</button><span id="ml" aria-live="polite"></span><button type="button" id="next" aria-label="Mes siguiente">›</button></div>
+        <div class="cal" id="cal" role="group" aria-label="Días disponibles"></div>
+        <div id="times" hidden><p class="tl">Horarios disponibles · <b id="dl"></b></p>
+          <div class="tg"><button type="button" class="t" aria-pressed="false">09:00</button><button type="button" class="t" aria-pressed="false">10:30</button><button type="button" class="t" aria-pressed="false">14:00</button><button type="button" class="t" aria-pressed="false">15:30</button></div></div>
+        <button class="btn" id="confirm" disabled>Confirmar horario</button>
+      </div>
+      <div class="ok" id="done" hidden><svg class="ic"><use href="#check"/></svg><h2>Reunión agendada para demostración</h2><p id="sum" style="font-weight:600;color:var(--navy)"></p><p>Gracias por elegir Digital Compass.</p><button class="btn" data-close>Cerrar</button></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(()=>{
+const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
+
+/* Header: cambio sutil al hacer scroll */
+const hd=$('header'),onS=()=>hd.classList.toggle('sc',scrollY>10);onS();addEventListener('scroll',onS,{passive:true});
+
+/* Aparición al hacer scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+$$('.rv,.route').forEach(el=>io.observe(el));
+
+/* FAQ: acordeón accesible */
+$$('.q').forEach((q,i)=>{const b=$('button',q),a=$('.a',q);
+  b.id='fb'+i;a.id='fa'+i;b.setAttribute('aria-controls',a.id);a.setAttribute('role','region');a.setAttribute('aria-labelledby',b.id);
+  b.addEventListener('click',()=>b.setAttribute('aria-expanded',q.classList.toggle('open')));});
+
+/* Modal de agenda ficticia */
+const m=$('#modal'),cal=$('#cal'),tm=$('#times'),cf=$('#confirm'),ml=$('#ml');
+const MES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+let last,mo=8,day=null,time=null;
+
+function render(){
+  ml.textContent=MES[mo]+' 2026';
+  const first=(new Date(2026,mo,1).getDay()+6)%7,n=new Date(2026,mo+1,0).getDate();
+  let h='<b>L</b><b>M</b><b>X</b><b>J</b><b>V</b><b>S</b><b>D</b>'+'<span></span>'.repeat(first);
+  for(let d=1;d<=n;d++){
+    const w=new Date(2026,mo,d),av=w.getDay()%6!==0&&w>new Date(2026,8,24); // días hábiles posteriores a hoy
+    h+=`<button type="button" class="d${av?'':' off'}${day===d?' sel':''}" data-d="${d}" ${av?'':'disabled'} aria-pressed="${day===d}">${d}</button>`;
+  }
+  cal.innerHTML=h;$('#prev').disabled=mo<=8;$('#next').disabled=mo>=10;
+}
+function reset(){mo=8;day=time=null;render();tm.hidden=true;cf.disabled=true;$('#form').hidden=false;$('#done').hidden=true;$$('.t',tm).forEach(t=>{t.classList.remove('sel');t.setAttribute('aria-pressed','false')})}
+const open=()=>{last=document.activeElement;reset();m.classList.add('open');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';setTimeout(()=>$('.x',m).focus(),50)};
+const close=()=>{m.classList.remove('open');m.setAttribute('aria-hidden','true');document.body.style.overflow='';last&&last.focus()};
+
+$$('[data-cta]').forEach(b=>b.addEventListener('click',open));
+$$('[data-close]').forEach(b=>b.addEventListener('click',close));
+m.addEventListener('click',e=>{if(e.target===m)close()});
+$('#prev').addEventListener('click',()=>{mo--;day=null;render();tm.hidden=true;cf.disabled=true});
+$('#next').addEventListener('click',()=>{mo++;day=null;render();tm.hidden=true;cf.disabled=true});
+cal.addEventListener('click',e=>{const b=e.target.closest('.d:not(.off)');if(!b)return;
+  day=+b.dataset.d;time=null;render();$('.d.sel',cal).focus();
+  $('#dl').textContent=day+' de '+MES[mo].toLowerCase();tm.hidden=false;cf.disabled=true;
+  $$('.t',tm).forEach(t=>{t.classList.remove('sel');t.setAttribute('aria-pressed','false')});});
+tm.addEventListener('click',e=>{const b=e.target.closest('.t');if(!b)return;
+  $$('.t',tm).forEach(t=>{t.classList.remove('sel');t.setAttribute('aria-pressed','false')});
+  b.classList.add('sel');b.setAttribute('aria-pressed','true');time=b.textContent;cf.disabled=false;});
+cf.addEventListener('click',()=>{$('#form').hidden=true;$('#done').hidden=false;
+  $('#sum').textContent=day+' de '+MES[mo].toLowerCase()+' de 2026 · '+time;$('#done .btn').focus();});
+
+/* Teclado: Esc cierra y el foco queda dentro del modal */
+addEventListener('keydown',e=>{
+  if(!m.classList.contains('open'))return;
+  if(e.key==='Escape')close();
+  if(e.key==='Tab'){const f=$$('button:not(:disabled)',m).filter(x=>x.offsetParent!==null),a=f[0],z=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}
+    else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}
+});
+})();
+</script>
+</body>
+</html>
